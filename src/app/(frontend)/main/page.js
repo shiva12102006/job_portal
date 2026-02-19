@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import ScrollingLogo from "./components/scrollingLogo";
+import AIFloatingChat from "./components/chatboot";
 
 export default function HomeMain() {
   return (
@@ -99,6 +100,7 @@ export default function HomeMain() {
       <section className="py-10 bg-white">
         <ScrollingLogo />
       </section>
+      <AIFloatingChat/>
 
     </>
   );

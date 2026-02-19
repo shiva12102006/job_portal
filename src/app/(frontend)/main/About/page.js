@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function About(){
     return (
-    <main className="bg-gray-50 text-gray-800">
+    <main className="bg-gray-100 text-gray-800">
 
       {/* HERO */}
-      <section className="bg-gray-200 text-black py-20">
+      <section className="bg-gray-400 text-black py-20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           
           {/* Text */}
@@ -21,14 +21,14 @@ export default function About(){
           </div>
 
           {/* Image Placeholder */}
-          <div className="w-full h-[400px] bg-white/20 rounded-xl flex items-center justify-center">
-            <span className="text-white text-sm">
+          <div className=" h-[400px] bg-white/20 rounded-xl flex items-center justify-center">
+            <span className="text-white text-sm ">
           <Image
       src="/About/company.jpg"
       alt="IT Jobs"
-      width={250}
+      width={350}
       height={450}
-      className="rounded-xl object-cover"
+      className="rounded-xl object-cover h-[400px] w-[590px]"
     />
             </span>
           </div>
@@ -42,7 +42,13 @@ export default function About(){
           {/* Image Placeholder */}
           <div className="w-full h-[350px] bg-gray-200 rounded-xl flex items-center justify-center">
             <span className="text-gray-500">
-              Company / Team Image
+            <Image
+      src="/img.jpg"
+      alt="IT Jobs"
+      width={350}
+      height={450}
+      className="rounded-xl object-cover h-[350px] w-[590px]"
+    />
             </span>
           </div>
 
@@ -64,7 +70,7 @@ export default function About(){
       </section>
 
       {/* JOB CATEGORIES */}
-      <section className="bg-white py-16">
+      <section className="bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12">
             Job Categories We Cover
@@ -74,18 +80,18 @@ export default function About(){
 
             {[
               {name: "IT & Software", img: "/About/soft.jpg"},
-              {name: "Non-IT & Core", img: "/About/core.jpg"},
+              {name: "Non-IT & Core", img: "/About/helth.jpg"},
               {name: "Healthcare", img: "/About/helth.jpg"},
               {name: "Finance & Banking", img: "/About/education.jpg"},
-              {name: "Manufacturing", img: "/public/About/manu.jpg"},
-              {name: "Sales & Marketing", img: "/public/About/sales.jpg"},
+              {name: "Manufacturing", img:"/About/helth.jpg"},
+              {name: "Sales & Marketing", img:"/About/helth.jpg"},
               {name: "Education", img: "/About/economic.jpg"},
-              {name: "Logistics & Support", img: "/public/About/log.jpg"},
+              {name: "Logistics & Support", img:"/About/helth.jpg"},
 
             ].map((job, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-xl shadow-sm overflow-hidden"
+                className="bg-gray-50  shadow-sm shadow-blue-200 overflow-hidden border border-2 hover:border-3 hover:border-blue-700 rounded transition duration-300"
               >
                 {/* Image Placeholder */}
                 <div className="w-full h-[160px] bg-gray-200 flex items-center justify-center">
@@ -95,7 +101,7 @@ export default function About(){
                 </div>
 
                 {/* Text */}
-                <div className="p-4 text-center">
+                <div className="p-4 text-center bg-gray-400 border overflow-hidden">
                   <h3 className="font-bold text-lg">{job.name}</h3>
                 </div>
               </div>
@@ -112,8 +118,8 @@ export default function About(){
           {/* Employer */}
           <div className="bg-white rounded-xl shadow p-8">
             <div className="w-full h-[200px] bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
-              <span className="text-gray-500">
-                Employer Image
+              <span className="text-gray-500 w-full">
+                <Image src="/About/employee.jpg" alt="IT Jobs" width={350} height={450} className="rounded-xl object-cover h-[200px] w-full" />
               </span>
             </div>
             <h3 className="text-2xl font-bold text-blue-600 mb-4">
@@ -133,8 +139,8 @@ export default function About(){
           {/* Job Seeker */}
           <div className="bg-white rounded-xl shadow p-8">
             <div className="w-full h-[200px] bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
-              <span className="text-gray-500">
-                Job Seeker Image
+              <span className="text-gray-500 w-full cover flex items-center ">
+                <Image src="/About/employer.jpg" alt="IT Jobs" width={350} height={450} className="rounded-xl object-cover h-[200px] w-full" />
               </span>
             </div>
             <h3 className="text-2xl font-bold text-green-600 mb-4">

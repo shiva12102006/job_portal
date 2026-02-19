@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 export default function Signup() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [formData,setformData] = useState({
     name: "",
@@ -34,6 +37,8 @@ export default function Signup() {
       if(!res.ok){
         setMessage(data.message || "Registration failed");
       }else{
+        console.log("Registration successful! Please log in.");
+        router.push("/main/login");
         setMessage("Registration successful! Please log in.");
       }
 
@@ -68,7 +73,7 @@ export default function Signup() {
               ✕
             </button>
 
-            <h2 className="text-2xl font-bold mb-4 text-center">
+            <h2 className="text-2xl font-bold mb-4 text-center text-blue-600">
               Create Account
             </h2>
 

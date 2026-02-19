@@ -47,12 +47,17 @@ export async function POST(req) {
       { expiresIn: "1d" }
     );
 
-    setcookie
+    
     
     return NextResponse.json({
       message: "Login successful",
       token,
+    user: {
+    id: users.id,
+    name: users.name,   // make sure DB me ye field hai
+    email: users.email,
     role: users.role,
+  },
     });
 
   } catch (error) {
