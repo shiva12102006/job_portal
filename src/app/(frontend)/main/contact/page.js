@@ -10,10 +10,10 @@ export default function Contact(){
       <div className="max-w-6xl w-full bg-white shadow-xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
         
         {/* Left Image Section */}
-        <div className="bg-gray-200 flex items-center justify-center p-8">
-          <div className="w-full h-[400px] relative">
+        <div className="bg-gray-200 flex items-center justify-center ">
+          <div className="w-full h-full relative">
             <Image
-              src="/contact.jpg"   // apni image public folder me daalna
+              src="/About/soft.jpg"   // apni image public folder me daalna
               alt="Contact Us"
               fill
               className="object-cover rounded-xl"
@@ -22,7 +22,7 @@ export default function Contact(){
         </div>
 
         {/* Right Form Section */}
-        <div className="p-8 md:p-12">
+        <div className="p-8 md:p-12 bg-gray-300">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Contact Us
           </h2>
@@ -41,7 +41,7 @@ export default function Contact(){
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                className="w-full border border-gray-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
               />
             </div>
 
@@ -53,7 +53,7 @@ export default function Contact(){
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                className="w-full border border-gray-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
               />
             </div>
 
@@ -65,7 +65,7 @@ export default function Contact(){
               <input
                 type="text"
                 placeholder="Job inquiry / Employer support"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                className="w-full border border-gray-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
               />
             </div>
 
@@ -77,7 +77,7 @@ export default function Contact(){
               <textarea
                 rows="4"
                 placeholder="Write your message..."
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                className="w-full border border-gray-800 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
               ></textarea>
             </div>
 

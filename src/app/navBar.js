@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Signup from "./(frontend)/main/components/singUp";
 
 const Navbar = () => {
-  const [users, setUsers] = useState({});
+  const [users, setUsers] = useState(null);
   const [dropdown, setDropdown] = useState(false);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -23,22 +23,29 @@ const Navbar = () => {
   }, []);
 
   // ✅ Check user on load (safe parse)
-useEffect(() => {
-  const loadUser = () => {
-    try {
-      const stored = localStorage.getItem("users"); // ✅ same key
-      const parsed = stored ? JSON.parse(stored) : null;
-      setUsers(parsed);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  useEffect(() => {
+    const loadUser = () => {
+      try {
+        const token = localStorage.getItem("token");
+        const stored = localStorage.getItem("users");
 
-  loadUser();
-  window.addEventListener("userChanged", loadUser);
+        if (!token || !stored) {
+          setUsers(null);
+          return;
+        }
 
-  return () => window.removeEventListener("userChanged", loadUser);
-}, []);
+        setUsers(JSON.parse(stored));
+      } catch (e) {
+        console.log(e);
+        setUsers(null);
+      }
+    };
+
+    loadUser();
+    window.addEventListener("userChanged", loadUser);
+
+    return () => window.removeEventListener("userChanged", loadUser);
+  }, []);
 
   // ✅ Logout Function
   const handleLogout = () => {
@@ -52,14 +59,28 @@ useEffect(() => {
     router.refresh();
   };
 
+ const handleDashboard = () => {
+  const userData = localStorage.getItem("users");
+  const user = userData ? JSON.parse(userData) : null;
+
+  if (!user) {
+    router.push("/login");
+    return;
+  }
+
+  // ✅ sab role same dashboard
+  router.push("/dashboard");
+
+  setDropdown(false);
+};
+
   return (
     <nav
       className={`fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out
-      ${
-        scrolled
+      ${scrolled
           ? "w-[90%] mx-auto mt-4 rounded-full bg-gray-300 shadow-lg ml-10 border-4 border-blue-600 text-black"
           : "w-full bg-transparent text-white"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 h-14">
         <div className="flex justify-between items-center h-14">
@@ -103,10 +124,7 @@ useEffect(() => {
                     </button>
 
                     <button
-                      onClick={() => {
-                        router.push("/dashboard");
-                        setDropdown(false);
-                      }}
+                      onClick={handleDashboard}
                       className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                     >
                       Dashboard

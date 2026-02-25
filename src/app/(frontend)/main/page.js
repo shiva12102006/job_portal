@@ -1,5 +1,7 @@
 "use client";
+import Navbar from "../../navBar";
 
+import Footer from "../../footer";
 import Image from "next/image";
 import ScrollingLogo from "./components/scrollingLogo";
 import AIFloatingChat from "./components/chatboot";
@@ -7,7 +9,7 @@ import AIFloatingChat from "./components/chatboot";
 export default function HomeMain() {
   return (
     <>
-
+     <Navbar/>
       {/* HERO SECTION */}
       <section className="relative w-full min-h-screen flex items-center justify-center bg-gray-100 overflow-hidden">
 
@@ -101,6 +103,9 @@ export default function HomeMain() {
         <ScrollingLogo />
       </section>
       <AIFloatingChat/>
+
+
+      <Footer/>
 
     </>
   );

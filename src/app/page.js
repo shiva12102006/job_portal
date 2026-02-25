@@ -4,11 +4,13 @@ import Navbar from "./navBar";
 import HomeMain from "./(frontend)/main/page";
 
 
+
 export default function Home() {
-  return (<>
+  return (
+  <>
+  
   
   <HomeMain/>
-  
 
 
 
